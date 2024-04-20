@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+
+:root {
+    --background: #141527;
+    --foreground: #1D1F38;
+    --white: #E3E6EB;
+    --action: #316380;
+    --action-hover: #34759A;
+    
+    --green-label: #579E79;
+    --red-label: #B84E53;
+}
+
+/*Global Buttons*/
+ .primary-button{
+    background: var(--action);
+    color: var(--white);
+    width: 180px;
+    height: 40px;
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    text-decoration: none;
+    cursor: pointer;
+ }
+ .primary-button:hover{
+    background-color: var(--action-hover);
+    transition: .2s ease-in-out;
+ }
