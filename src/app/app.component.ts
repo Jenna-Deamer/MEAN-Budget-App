@@ -6,7 +6,7 @@ import { HomeComponent } from './components/home/home.component'
   selector: 'app-root',
   template: `
   <main>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light pe-4 ps-4">
+  <nav class="navbar navbar-expand-lg ps-4 pe-4">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@ import { HomeComponent } from './components/home/home.component'
     <main class="content">
       <app-home></app-home>
 </main>
-    <footer class="fixed-bottom text-center p-4 bg-light">Footer</footer>
+    <footer class="fixed-bottom text-center">Footer</footer>
   </main>
 `,
   standalone: true,

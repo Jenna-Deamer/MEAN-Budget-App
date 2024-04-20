@@ -1,8 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+
+   
     --background: #141527;
     --foreground: #1D1F38;
     --white: #E3E6EB;
@@ -11,6 +16,111 @@
     
     --green-label: #579E79;
     --red-label: #B84E53;
+
+    --shadow: 0 4px 4px rgba(7, 7, 7, 0.5);
+    --global-transition: 0.3s ease-in-out; 
+
+    --icon-background: #3499d7;
+    --icon-inner: #f7f9fe;
+
+}
+
+/*Nav Bootstrap overrides*/
+
+nav{
+   background-color: var(--foreground);
+}
+/*Custom Hamburger Menu Styles*/
+.navbar-toggler-icon {
+   background-image: url(./assets/mobile-open.svg);
+ }
+ .close-toggle svg {
+   stroke: var(--icon-background);
+ }
+ 
+/* Remove the default box shadow from focused state. */
+.navbar-toggler:focus {
+   box-shadow: none;
+ }
+ /* Remove default button styles of bootstrap's toggle menu. */
+ .navbar-toggler,
+ .close-toggle {
+   outline: none;
+   border: none;
+   box-shadow: none;
+   cursor: pointer;
+ }
+
+ /*Nav Link Styles*/
+.nav-link,
+.navbar-brand{
+   color: var(--white);
+}
+.nav-link:hover,
+.navbar-brand:hover{
+   color: var(--action-hover);
+   transition: var(--global-transition)
+}
+
+/*Fonts & Sizes*/
+body{
+   font-family: "Poppins", sans-serif;
+   font-size: 18px;
+}
+
+h1,h2,h3,h4{
+   font-family: "M PLUS 1p", sans-serif;
+   font-weight: 800;
+}
+h1 {
+   font-size: 48px;
+}
+
+h2 {
+   font-size: 38px;
+}
+h3{
+   font-size: 24px;
+}
+h4{
+   font-size: 20px;
+}
+/* Adjust font sizes for tablets */
+@media screen and (max-width: 800px) {
+   h1 {
+      font-size: 42px;
+  }
+  h2 {
+      font-size: 32px;
+  }
+  h3 {
+      font-size: 20px;
+  }
+  h4 {
+      font-size: 18px;
+  }
+  body {
+      font-size: 14px;
+  }
+}
+
+/* Adjust font sizes for mobile */
+@media screen and (max-width: 500px) {
+   h1 {
+       font-size: 36px;
+   }
+   h2 {
+       font-size: 28px;
+   }
+   h3 {
+       font-size: 18px;
+   }
+   h4 {
+       font-size: 16px;
+   }
+   body {
+       font-size: 12px;
+   }
 }
 
 /*Global Buttons*/
@@ -23,8 +133,16 @@
     border-radius: 20px;
     text-decoration: none;
     cursor: pointer;
+    box-shadow: var(--shadow);
  }
  .primary-button:hover{
     background-color: var(--action-hover);
-    transition: .2s ease-in-out;
+    transition: var(--global-transition)
+ }
+
+/*Footer*/
+ footer{
+   background-color: var(--foreground);
+   color: var(--white);
+   padding: 1em;
  }
