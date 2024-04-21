@@ -7,71 +7,79 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 
-   
-    --background: #141527;
-    --foreground: #1D1F38;
-    --white: #E3E6EB;
-    --action: #316380;
-    --action-hover: #34759A;
-    
-    --green-label: #579E79;
-    --red-label: #B84E53;
 
-    --shadow: 0 4px 4px rgba(7, 7, 7, 0.5);
-    --global-transition: 0.3s ease-in-out; 
+   --background: #141527;
+   --foreground: #1D1F38;
+   --white: #E3E6EB;
+   --action: #316380;
+   --action-hover: #34759A;
 
-    --icon-background: #3499d7;
-    --icon-inner: #f7f9fe;
+   --green-label: #579E79;
+   --red-label: #B84E53;
+
+   --shadow: 0 4px 4px rgba(7, 7, 7, 0.5);
+   --global-transition: 0.3s ease-in-out;
+   --border-radius: 8px;
+   --icon-background: #3499d7;
+   --icon-inner: #f7f9fe;
 
 }
 
 /*Nav Bootstrap overrides*/
 
-nav{
+nav {
    background-color: var(--foreground);
 }
+
 /*Custom Hamburger Menu Styles*/
 .navbar-toggler-icon {
    background-image: url(./assets/mobile-open.svg);
- }
- .close-toggle svg {
+}
+
+.close-toggle svg {
    stroke: var(--icon-background);
- }
- 
+}
+
 /* Remove the default box shadow from focused state. */
 .navbar-toggler:focus {
    box-shadow: none;
- }
- /* Remove default button styles of bootstrap's toggle menu. */
- .navbar-toggler,
- .close-toggle {
+}
+
+/* Remove default button styles of bootstrap's toggle menu. */
+.navbar-toggler,
+.close-toggle {
    outline: none;
    border: none;
    box-shadow: none;
    cursor: pointer;
- }
+}
 
- /*Nav Link Styles*/
+/*Nav Link Styles*/
 .nav-link,
-.navbar-brand{
+.navbar-brand {
    color: var(--white);
 }
+
 .nav-link:hover,
-.navbar-brand:hover{
+.navbar-brand:hover {
    color: var(--action-hover);
    transition: var(--global-transition)
 }
 
 /*Fonts & Sizes*/
-body{
+body {
    font-family: "Poppins", sans-serif;
    font-size: 18px;
 }
 
-h1,h2,h3,h4{
+h1,
+h2,
+h3,
+h4 {
    font-family: "M PLUS 1p", sans-serif;
    font-weight: 800;
 }
+
 h1 {
    font-size: 48px;
 }
@@ -79,70 +87,88 @@ h1 {
 h2 {
    font-size: 38px;
 }
-h3{
+
+h3 {
    font-size: 24px;
 }
-h4{
+
+h4 {
    font-size: 20px;
 }
+
 /* Adjust font sizes for tablets */
 @media screen and (max-width: 800px) {
    h1 {
       font-size: 42px;
-  }
-  h2 {
+   }
+
+   h2 {
       font-size: 32px;
-  }
-  h3 {
+   }
+
+   h3 {
       font-size: 20px;
-  }
-  h4 {
+   }
+
+   h4 {
       font-size: 18px;
-  }
-  body {
+   }
+
+   body {
       font-size: 14px;
-  }
+   }
 }
 
 /* Adjust font sizes for mobile */
 @media screen and (max-width: 500px) {
    h1 {
-       font-size: 36px;
+      font-size: 36px;
    }
+
    h2 {
-       font-size: 28px;
+      font-size: 28px;
    }
+
    h3 {
-       font-size: 18px;
+      font-size: 18px;
    }
+
    h4 {
-       font-size: 16px;
+      font-size: 16px;
    }
+
    body {
-       font-size: 12px;
+      font-size: 12px;
    }
 }
 
+main {
+   background-color: var(--background);
+   min-height: calc(100vh - 60px);
+   color: var(--white);
+}
+
 /*Global Buttons*/
- .primary-button{
-    background: var(--action);
-    color: var(--white);
-    width: 180px;
-    height: 40px;
-    border: 1px solid var(--white);
-    border-radius: 20px;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: var(--shadow);
- }
- .primary-button:hover{
-    background-color: var(--action-hover);
-    transition: var(--global-transition)
- }
+.primary-button {
+   background: var(--action);
+   color: var(--white);
+   width: 180px;
+   height: 40px;
+   border: 1px solid var(--white);
+   border-radius: 20px;
+   text-decoration: none;
+   cursor: pointer;
+   box-shadow: var(--shadow);
+}
+
+.primary-button:hover {
+   background-color: var(--action-hover);
+   transition: var(--global-transition)
+}
 
 /*Footer*/
- footer{
+footer {
    background-color: var(--foreground);
    color: var(--white);
    padding: 1em;
- }
+}

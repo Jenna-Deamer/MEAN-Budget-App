@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home/home.component'
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @Component({
   selector: 'app-root',
   template: `
@@ -36,14 +36,15 @@ import { HomeComponent } from './components/home/home.component'
 </ul>
   </div>
 </nav>
-    <main class="content">
-      <app-home></app-home>
+    <main>
+      <!-- <app-home></app-home> -->
+      <app-dashboard></app-dashboard>
 </main>
-    <footer class="fixed-bottom text-center">Footer</footer>
+    <footer class="fixed-bottom text-center">©2024 Jenna Deamer</footer>
   </main>
 `,
   standalone: true,
-  imports: [RouterOutlet, HomeComponent],
+  imports: [RouterOutlet, HomeComponent, DashboardComponent],
   // templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
