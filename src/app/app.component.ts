@@ -36,10 +36,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 </ul>
   </div>
 </nav>
-    <main>
+    <section class="main-content">
       <!-- <app-home></app-home> -->
       <app-dashboard></app-dashboard>
-</main>
+    </section>
     <footer class="fixed-bottom text-center">©2024 Jenna Deamer</footer>
   </main>
 `,

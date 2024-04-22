@@ -142,12 +142,13 @@ h4 {
    }
 }
 
-main {
+.main-content {
    background-color: var(--background);
-   min-height: calc(100vh - 60px);
    color: var(--white);
 }
-
+.page-wrapper{
+   min-height: 100vh;
+}
 /*Global Buttons*/
 .primary-button {
    background: var(--action);
@@ -165,7 +166,10 @@ main {
    background-color: var(--action-hover);
    transition: var(--global-transition)
 }
-
+/*List resets*/
+ul, ol,li {
+   list-style-type: none;
+}
 /*Footer*/
 footer {
    background-color: var(--foreground);

@@ -87,7 +87,26 @@
 /*Dash pie chart & expense section*/
 .dashboard-expense-chart-container {
     background-color: var(--foreground);
-    margin: 0 150px;
-    padding: 24px;
+    padding: 34px 76px;
+    margin: 0 150px 36px 150px;
+
     border-radius: var(--border-radius);
+}
+.pie-chart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dashboard-expense-chart-container h4{
+    padding-bottom: 34px;
+}
+/*Expenses breakdown list*/
+.expense-list-container{
+    display: flex;
+    justify-content: center;
 }
