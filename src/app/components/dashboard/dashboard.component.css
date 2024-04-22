@@ -1,25 +1,22 @@
-/*Dash Header*/
+/*Dashboard Header*/
 .dashboard-header {
     padding-top: 26px;
+    text-align: center;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-left: 48px;
-    margin-right: 48px;
+    justify-content: center;
+    gap: 16px; 
 }
 
-.dashboard-header h1 {
-    /*Center h1 while pushing button to far right*/
-    flex-grow: 1;
-    text-align: center;
-
+.dashboard-header > h1{
+   text-align: center;
+    margin: unset;
 }
 
 .dashboard-header .primary-button {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .dashboard-header .primary-button .bi {
@@ -28,40 +25,63 @@
 }
 
 /*Dash Highlight Cards*/
-.dashboard-highlights-container {
+.highlights-container{
+    padding: 16px 88px 36px 88px;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
     gap: 56px;
-    /*spacing*/
-    padding: 0 88px;
-    margin-top: 18px;
 }
-
-.dashboard-highlights-container>article {
+.highlight-article{
     background-color: var(--foreground);
+    border-radius: var(--border-radius);
+    padding: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-radius: var(--border-radius);
-    margin-bottom: 36px;
 }
-#expense-label{
-    color: var(--red-label);
+.highlight-article > p{
+    margin: unset;
 }
 #income-label{
     color: var(--green-label);
 }
-.goal-widget {
-    padding: 18px;
+#expense-label{
+    color: var(--red-label);
 }
 
-.goal-widget>.primary-button {
+.highlight-article > .primary-button{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 8px;
+}
+/*Highlight Cards Mobile*/
+@media screen and (max-width: 950px) {
+    .highlights-container{
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+    .highlight-article.goal-widget {
+        /* Move the goal widget to last in stack. 
+        Making income & expense side by side */
+        order: 1; 
+        grid-column: span 2; 
+    }
+    .highlight-article > .primary-button{
+        width: 140px;
+    }
+}
+@media screen and (max-width: 700px){
+    .highlights-container{
+        grid-template-columns: 1fr;
+    }
+    .highlight-article.goal-widget {
+        /* Move the goal widget to top of stack*/
+        order: -1; 
+        grid-column: unset; 
+    }
 }
 
 /*Dash pie chart & expense section*/

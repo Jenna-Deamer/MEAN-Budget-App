@@ -1,29 +1,35 @@
 <section>
     <div class="dashboard-header">
         <h1>Month Overview</h1>
-        <a href="#" class="primary-button change-date-button">Month Year <i class="bi bi-calendar"></i></a>    </div>
+        <div class="calender-button-container">
+            <a href="#" class="primary-button">Month Year <i class="bi bi-calendar"></i></a>
+        </div>
+       
+    </div>
 
-<div class="dashboard-highlights-container">
-    <article class="highlight-card">
-        <span id="income-card-value">$2,000</span>
-        <p id="income-label">Income</p>
-    </article>
+    
+    <section class="highlights-container">
+        <article class="highlight-article">
+            <h3 id="income-value">$2,000</h3>
+            <p id="income-label">Income</p>
+        </article>
+       
+            <article class="highlight-article goal-widget">
+                <h3>You are <span id="goal-value">$200,000</span> <span id="goal-warning-label"> Over Budget</span></h3>
+                <a href="#" class="primary-button manage-goal-button">Manage Goal</a>
+            </article>
+        
+        <article class="highlight-article">
+            <h3 id="expense-value">$2,000</h3>
+            <p id="expense-label">Expenses</p>
+        </article>
+    </section>
 
-    <article class="goal-widget">
-    <span id="goal-alert-value">You are $200,000 Over Budget!</span>
-    <a class="primary-button manage-goal-button">Manage Goal</a>
-    </article>
-
-    <article class="highlight-card">
-        <span id="expense-highlight-value">$2,000</span>
-        <p id="expense-label">Expense</p>
-    </article>
-</div>
 </section>
-<section class="dashboard-expense-chart-container">
+<!-- <section class="dashboard-expense-chart-container">
     <h3>Total Expenses For Month</h3>
     <div class="pie-chart-container"></div>
     <div class="expense-list-container">
 
     </div>
-</section>
+</section> -->
