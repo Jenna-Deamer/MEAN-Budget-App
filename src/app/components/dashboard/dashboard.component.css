@@ -1,29 +1,14 @@
 /*Dashboard Header*/
-.dashboard-header {
+.page-heading-container{
     padding-top: 26px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px; 
+    padding-bottom: 18px;
 }
-
-.dashboard-header > h1{
-   text-align: center;
-    margin: unset;
-}
-
-.dashboard-header .primary-button {
+.calender-button{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-.dashboard-header .primary-button .bi {
-    margin-left: 5px;
-    /* Adjust the margin between the text & bs icon */
-}
-
+  
 /*Dash Highlight Cards*/
 .highlights-container{
     padding: 16px 88px 36px 88px;
@@ -92,48 +77,45 @@
     }
 }
 
+.dashboard-wrapper{
+    /*Prevent chart container from touching screen edges*/
+    padding: 0 50px 100px 50px;
+    
+}
 /*Dash pie chart & expense section*/
 .dashboard-expense-chart-container {
     background-color: var(--foreground);
     padding: 36px 76px;
     border-radius: var(--border-radius);
-    max-width: calc(100% - 360px); /* Adjust the max-width to accommodate the left & right margins */
+    max-width: 1200px;
     margin: 0 auto; /* Center the section horizontally */
-  }
-  
-  
-.pie-chart-container{
+}
+
+.pie-chart-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.data-wrapper{
+
+.data-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.dashboard-expense-chart-container h4{
+.dashboard-expense-chart-container h4 {
     padding-bottom: 34px;
 }
+
 /*Expenses breakdown list*/
-.expense-item {
+.expense-list-container{
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-  }
-  /*Space Circle from category name*/
-  .category-indicator {
-    margin-right: 12px;
-  }
-  /*Space apart evenly*/
-  .category-name,
-  .amount-spent,
-  .percentage {
-    flex: 1; 
-    
-  }
-  
+    align-items: center;
+ 
+}
+.expense-item{
+    margin-bottom: 16px;
+}
 
 /*Pie chart & breakdown list Mobile*/
 @media screen and (max-width: 1200px) {
@@ -149,20 +131,12 @@
 
 }
 @media screen and (max-width: 850px) {
-    .dashboard-expense-chart-container{
-       margin: 0 80px 36px 80px;
-
-    }
    #pie-chart-placeholder {
       width: 250px; 
       height: 250px; 
     }
   }
-  @media screen and (max-width: 500px) {
-    .dashboard-expense-chart-container{
-        margin: 0 30px 36px 30px;
-     }
-  }
+ 
 /*shrink pie chart for mobile*/
   @media screen and (max-width: 420px) {
     #pie-chart-placeholder {

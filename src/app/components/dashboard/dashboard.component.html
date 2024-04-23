@@ -1,13 +1,11 @@
 <div class="page-wrapper">
+
   <section>
-    <!-- <div class="dashboard-header">
-    <h1>Month Overview</h1>
-    <div class="calender-button-container">
-      <a href="#" class="primary-button"
-        >Month Year <i class="bi bi-calendar"></i
-      ></a>
-    </div>
-  </div> -->
+ 
+    <!-- <div class="page-heading-container">
+      <h1>Month's Overview</h1>
+      <a href="#" class="primary-button calender-button">Month Year</a>
+    </div> -->
 
     <section class="highlights-container">
       <article class="highlight-article" id="income-article">
@@ -30,6 +28,7 @@
     </section>
   </section>
 
+  <div class="dashboard-wrapper">
   <section class="dashboard-expense-chart-container">
     <h4>Total Expenses For Month</h4>
     <div class="data-wrapper">
@@ -51,68 +50,91 @@
       <div class="expense-list-container">
         <ul class="expense-list">
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Housing</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Housing</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
+          </li> 
+          <li class="expense-item">
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Food</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Food</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Healthcare</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Healthcare</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Transportation</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Transportation</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Entertainment</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Entertainment</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Education</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Education</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Debt Payments</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Debt Payments</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Personal Care</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Personal Care</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Taxes</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
           <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Taxes</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
+            <div class="expense-item-desktop">
+              <i class="bi bi-circle-fill category-indicator"></i>
+              <span class="category-name">Other</span>
+              <span class="amount-spent">$200.99</span>
+              <span class="percentage">5.2%</span>
+            </div>
           </li>
-          <li class="expense-item">
-            <i class="bi bi-circle-fill category-indicator"></i>
-            <span class="category-name">Other</span>
-            <span class="amount-spent">$200.99</span>
-            <span class="percentage">5.2%</span>
-          </li>
-          
         </ul>
       </div>
+      
+      
     </div>
   </section>
+</div>
+
 </div>
