@@ -1,147 +1,190 @@
 /*Dashboard Header*/
-.page-heading-container{
-    padding-top: 26px;
-    padding-bottom: 18px;
-}
-.calender-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-/*Dash Highlight Cards*/
-.highlights-container{
-    padding: 16px 88px 36px 88px;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    gap: 56px;
-}
-.highlight-article{
-    background-color: var(--foreground);
-    border-radius: var(--border-radius);
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-#expense-article,
-#income-article{
-    max-width: 500px;
-}
-.goal-widget{
-    max-width: 700px;
-}
-.highlight-article > p{
-    margin: unset;
-}
-#income-label{
-    color: var(--green-label);
-}
-#expense-label{
-    color: var(--red-label);
+.calender-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24px;
 }
 
-.highlight-article > .primary-button{
-    display: flex;
-    align-items: center;
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 5em;
+}
+
+.calender-button-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: relative;
+}
+
+.calender-button,
+.page-title {
+  position: absolute;
+}
+/*Stack h1 & button on MOBILE*/
+@media only screen and (max-width: 950px) {
+  .header-container {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .calender-button-container {
+    margin-top: 16px;
     justify-content: center;
-    margin-top: 8px;
+  }
+  .calender-button,
+  .page-title {
+    position: relative;
+    text-align: center;
+    margin: unset;
+  }
+}
+
+/*Dash Highlight Cards*/
+.highlights-container {
+  display: grid;
+  margin: 36px 50px;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 56px;
+}
+.highlight-article {
+  background-color: var(--foreground);
+  border-radius: var(--border-radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+
+}
+#expense-article,
+#income-article {
+  max-width: 500px;
+}
+.goal-widget {
+  max-width: 800px;
+
+}
+.highlight-article > p {
+  margin: unset;
+}
+#income-label {
+  color: var(--green-label);
+}
+#expense-label {
+  color: var(--red-label);
+}
+
+.highlight-article > .primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 /*Highlight Cards Mobile*/
 @media screen and (max-width: 950px) {
-    .highlights-container{
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-    }
-    .highlight-article.goal-widget {
-        /* Move the goal widget to last in stack. 
+  .highlights-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .highlight-article.goal-widget {
+    /* Move the goal widget to last in stack. 
         Making income & expense side by side */
-        order: 1; 
-        grid-column: span 2; 
-    }
-    .highlight-article > .primary-button{
-        width: 140px;
-    }
+    order: 1;
+    grid-column: span 2;
+  }
+ 
+  .highlight-article > .primary-button {
+    width: 140px;
+  }
+  #expense-article,
+#income-article,
+.goal-widget {
+  max-width: 100%;
 }
-@media screen and (max-width: 700px){
-    .highlights-container{
-        grid-template-columns: 1fr;
-    }
-    .highlight-article.goal-widget {
-        /* Move the goal widget to top of stack*/
-        order: -1; 
-        grid-column: unset; 
-    }
+}
+@media screen and (max-width: 700px) {
+  .highlights-container {
+    grid-template-columns: 1fr;
+  }
+  .highlight-article.goal-widget {
+    /* Move the goal widget to top of stack*/
+    order: -1;
+    grid-column: unset;
+  }
 }
 
-.dashboard-wrapper{
-    /*Prevent chart container from touching screen edges*/
-    padding: 0 50px 100px 50px;
-    
+.dashboard-wrapper {
+  /*Prevent chart container from touching screen edges*/
+  padding: 0 50px 100px 50px;
 }
+
+
+
 /*Dash pie chart & expense section*/
 .dashboard-expense-chart-container {
-    background-color: var(--foreground);
-    padding: 36px 76px;
-    border-radius: var(--border-radius);
-    max-width: 1200px;
-    margin: 0 auto; /* Center the section horizontally */
+  background-color: var(--foreground);
+  padding: 36px 76px;
+  border-radius: var(--border-radius);
+  max-width: 1200px;
+  margin: 0 auto; /* Center the section horizontally */
 }
 
 .pie-chart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .data-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .dashboard-expense-chart-container h4 {
-    padding-bottom: 34px;
+  padding-bottom: 34px;
 }
 
 /*Expenses breakdown list*/
-.expense-list-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
- 
+.expense-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.expense-item{
-    margin-bottom: 16px;
+.expense-item {
+  margin-bottom: 16px;
 }
 
 /*Pie chart & breakdown list Mobile*/
 @media screen and (max-width: 1200px) {
-    .data-wrapper{
-        grid-template-columns: 1fr;
-    }
-    .dashboard-expense-chart-container h4{
-        text-align: center;
-    }
-    .pie-chart-container{
-        margin-bottom: 32px;
-    }
-
+  .data-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-expense-chart-container h4 {
+    text-align: center;
+  }
+  .pie-chart-container {
+    margin-bottom: 32px;
+  }
 }
 @media screen and (max-width: 850px) {
-   #pie-chart-placeholder {
-      width: 250px; 
-      height: 250px; 
-    }
+  #pie-chart-placeholder {
+    width: 250px;
+    height: 250px;
   }
- 
-/*shrink pie chart for mobile*/
-  @media screen and (max-width: 420px) {
-    #pie-chart-placeholder {
-        width: 150px; 
-        height: 150px; 
-      }
-  }
+}
 
+/*shrink pie chart for mobile*/
+@media screen and (max-width: 420px) {
+  #pie-chart-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+}
