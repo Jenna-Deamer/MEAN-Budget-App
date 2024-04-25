@@ -25,6 +25,7 @@
 .page-title {
   position: absolute;
 }
+
 /*Stack h1 & button on MOBILE*/
 @media only screen and (max-width: 950px) {
   .header-container {
@@ -36,6 +37,7 @@
     margin-top: 16px;
     justify-content: center;
   }
+
   .calender-button,
   .page-title {
     position: relative;
@@ -51,6 +53,7 @@
   grid-template-columns: 1fr 1.5fr 1fr;
   gap: 56px;
 }
+
 .highlight-article {
   background-color: var(--foreground);
   border-radius: var(--border-radius);
@@ -63,25 +66,30 @@
 
 
 }
+
 #expense-article,
 #income-article {
   max-width: 500px;
 }
+
 .goal-widget {
   max-width: 800px;
 
 }
-.highlight-article > p {
+
+.highlight-article>p {
   margin: unset;
 }
+
 #income-label {
   color: var(--green-label);
 }
+
 #expense-label {
   color: var(--red-label);
 }
 
-.highlight-article > .primary-button {
+.highlight-article>.primary-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,26 +102,30 @@
     grid-template-columns: 1fr 1fr;
     gap: 28px;
   }
+
   .highlight-article.goal-widget {
     /* Move the goal widget to last in stack. 
         Making income & expense side by side */
     order: 1;
     grid-column: span 2;
   }
- 
-  .highlight-article > .primary-button {
+
+  .highlight-article>.primary-button {
     width: 140px;
   }
+
   #expense-article,
-#income-article,
-.goal-widget {
-  max-width: 100%;
+  #income-article,
+  .goal-widget {
+    max-width: 100%;
+  }
 }
-}
+
 @media screen and (max-width: 700px) {
   .highlights-container {
     grid-template-columns: 1fr;
   }
+
   .highlight-article.goal-widget {
     /* Move the goal widget to top of stack*/
     order: -1;
@@ -134,7 +146,8 @@
   padding: 36px 76px;
   border-radius: var(--border-radius);
   max-width: 1200px;
-  margin: 0 auto; /* Center the section horizontally */
+  margin: 0 auto;
+  /* Center the section horizontally */
 }
 
 .pie-chart-container {
@@ -158,22 +171,59 @@
   justify-content: center;
   align-items: center;
 }
+
 .expense-item {
   margin-bottom: 16px;
 }
+
+.expense-item {
+  display: grid;
+  grid-template-columns: 1fr 5fr 5fr 5fr;
+  text-align: center;
+}
+
+/*Expense breakdown list Mobile*/
+@media screen and (max-width: 600px) {
+  .expense-item {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .category-indicator {
+    grid-row: span 2;
+    align-self: center;
+  }
+
+  .category-name {
+    grid-column: span 2;
+  }
+
+  .amount-spent {
+    grid-column: 2;
+  }
+
+  .percentage {
+    grid-column: 3;
+  }
+
+}
+
 
 /*Pie chart & breakdown list Mobile*/
 @media screen and (max-width: 1200px) {
   .data-wrapper {
     grid-template-columns: 1fr;
   }
+
   .dashboard-expense-chart-container h4 {
     text-align: center;
   }
+
   .pie-chart-container {
     margin-bottom: 32px;
   }
 }
+
 @media screen and (max-width: 850px) {
   #pie-chart-placeholder {
     width: 250px;
@@ -182,9 +232,20 @@
 }
 
 /*shrink pie chart for mobile*/
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   #pie-chart-placeholder {
     width: 150px;
     height: 150px;
   }
+  .dashboard-expense-chart-container{
+    padding: 36px 36px;
+  }
+  
+}
+@media screen and (max-width: 380px) {
+  #pie-chart-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+  
 }
