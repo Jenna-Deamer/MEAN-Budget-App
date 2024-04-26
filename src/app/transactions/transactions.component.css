@@ -1,0 +1,70 @@
+/*Buttons*/
+.table-buttons-container{
+    padding-top: 46px;
+    display: flex;
+    gap: 24px;
+}
+.table-buttons-container > a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+/*TABLE*/
+.transactions-table {
+    width: 100%;
+    margin-top: 30px;
+    background-color: var(--foreground); 
+    border-radius: var(--border-radius);
+}
+
+/*Table Header */
+.transactions-table th {
+    padding: 8px;
+    background-color:var(--accent); 
+    border: 1px solid var(--white); 
+
+}
+
+/*Table Body */
+.transactions-table td {
+    padding: 8px;
+    border: 1px solid var(--white); 
+}
+
+/*Edit & Delete Table Buttons*/
+.manage-table-button{
+     /* Make buttons a perfect circle */
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     border: none;
+     text-decoration: none;
+     display: inline-flex;
+     /* Ensures button takes up the width and height */
+     justify-content: center;
+     /* Centers content horizontally */
+     align-items: center;
+     /* Centers content vertically */
+}
+/*Center the 2 buttons in each cell.*/
+.transactions-table .button-cell {
+    text-align: center; 
+    vertical-align: middle; /* Center content vertically */
+}
+.edit-transaction-button {
+    background-color: var(--edit-purple);
+    color: var(--white);
+    transition: background-color 0.2s ease;
+}
+.edit-transaction-button:hover{
+    background-color: var(--edit-purple-hover);
+}
+.delete-transaction-button {
+    background-color: var(--red-label);
+    color: var(--white);
+    transition: var(--global-transition);
+}
+.delete-transaction-button:hover{
+    background-color: var(--red-hover);
+}

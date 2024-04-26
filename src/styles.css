@@ -13,9 +13,14 @@
    --white: #E3E6EB;
    --action: #316380;
    --action-hover: #34759A;
-
+   --edit-purple: #815A9C;
+   --edit-purple-hover: #9266B0;
+   
    --green-label: #579E79;
    --red-label: #B84E53;
+   --red-hover: #CD3D43;
+   --accent: #1F245F;
+  
 
    --shadow: 0 4px 4px rgba(7, 7, 7, 0.5);
    --global-transition: 0.3s ease-in-out;
@@ -173,6 +178,55 @@ h4 {
 ul, ol,li {
    list-style-type: none;
 }
+/*Header & Cal Button*/
+.calender-button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 24px;
+ }
+ 
+ .header-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   padding-top: 5em;
+ }
+ 
+ .calender-button-container {
+   display: flex;
+   justify-content: end;
+   align-items: center;
+   position: relative;
+ }
+ 
+ .calender-button,
+ .page-title {
+   position: absolute;
+ }
+ 
+ /*Stack h1 & button on MOBILE*/
+ @media only screen and (max-width: 950px) {
+   .header-container {
+     flex-direction: column;
+     position: relative;
+   }
+ 
+   .calender-button-container {
+     margin-top: 16px;
+     justify-content: center;
+   }
+ 
+   .calender-button,
+   .page-title {
+     position: relative;
+     text-align: center;
+     margin: unset;
+   }
+ }
+
+ 
 /*Footer*/
 footer {
    background-color: var(--foreground);
