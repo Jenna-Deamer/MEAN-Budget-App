@@ -4,8 +4,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 
 /**FORMS**/
-import { SignupComponent } from './forms/signup/signup.component';
-import { LoginComponent } from './forms/login/login.component';
+import { SignupComponent } from './components/forms/signup/signup.component';
+import { LoginComponent } from './components/forms/login/login.component';
 
 
 export const routes: Routes = [

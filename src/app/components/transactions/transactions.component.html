@@ -28,41 +28,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Transaction 1</td>
-          <td>Expense</td>
-          <td>$50.00</td>
-          <td>Food</td>
-          <td>2024-04-25</td>
-          
+        <tr *ngFor="let transaction of TRANSACTIONS">
+          <td>{{ transaction.name }}</td>
+          <td>{{ transaction.type }}</td>
+          <td>${{ transaction.amount.toFixed(2) }}</td>
+          <td>{{ transaction.category }}</td>
+          <td>{{ transaction.date | date:'MMMM d, y' }}</td>
+
           <td class="button-cell">
-            <a href="#" class="edit-transaction-button manage-table-button"
-              ><i class="bi bi-pencil"></i
-            ></a>
+            <a href="#" class="edit-transaction-button manage-table-button">
+              <i class="bi bi-pencil"></i>
+            </a>
           </td>
           <td class="button-cell">
-            <a href="#" class="delete-transaction-button manage-table-button"
-              ><i class="bi bi-x-lg"></i>
+            <a href="#" class="delete-transaction-button manage-table-button">
+              <i class="bi bi-x-lg"></i>
             </a>
           </td>
         </tr>
-        <tr>
-          <td>Transaction 2</td>
-          <td>Income</td>
-          <td>$200.00</td>
-          <td>Salary</td>
-          <td>2024-04-24</td>
-          <td class="button-cell">
-            <a href="#" class="edit-transaction-button manage-table-button"
-              ><i class="bi bi-pencil"></i
-            ></a>
-          </td>
-          <td class="button-cell">
-            <a href="#" class="delete-transaction-button manage-table-button"
-            ><i class="bi bi-x-lg"></i>
-          </a>
-          </td>
-        </tr>
+      
       </tbody>
     </table>
 
