@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environment/environment';
+import { transition } from '@angular/animations';
 
 
 @Injectable({
@@ -16,5 +17,12 @@ export class TransactionsService {
   getTransactions() {
     //use http to call express API
     return this.http.get(`${this.serverUrl}/api/transactions`);
+  }
+  //POST
+  addTransaction(transaction: any) {
+    //pass url & data we want to submit
+    console.log('Transaction Service Called');
+    return this.http.post(`${this.serverUrl}/api/transactions`, transaction);
+    
   }
 }

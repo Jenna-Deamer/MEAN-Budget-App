@@ -18,6 +18,7 @@ export class TransactionsComponent {
   constructor(private service: TransactionsService){}
 
   TRANSACTIONS: any;
+  
 
   //call api GET via service,
   // wait for json response then populate TRANSACTIONS var
