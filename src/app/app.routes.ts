@@ -6,12 +6,15 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 /**FORMS**/
 import { SignupComponent } from './components/forms/signup/signup.component';
 import { LoginComponent } from './components/forms/login/login.component';
-
+import { EditComponent } from './components/forms/edit/edit.component';
+import { CreateComponent } from './components/forms/create/create.component';
 
 export const routes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
     { path: '', component: HomeComponent },
+    { path: 'dashboard', component: DashboardComponent },
     {path: 'transactions',component: TransactionsComponent},
     {path: 'signup',component: SignupComponent},
     {path: 'login',component: LoginComponent},
+    {path: 'create',component: CreateComponent},
+    {path: 'edit',component: EditComponent},
 ];

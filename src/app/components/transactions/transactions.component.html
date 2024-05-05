@@ -10,7 +10,7 @@
 
   <section class="transactions-container container">
     <div class="table-buttons-container">
-      <a class="primary-button">Add New</a>
+      <a routerLink="/create" ariaCurrentWhenActive="page" class="primary-button">Add New</a>
       <a class="primary-button">Sort By</a>
     </div>
 
@@ -36,7 +36,7 @@
           <td>{{ transaction.date | date:'MMMM d, y' }}</td>
 
           <td class="button-cell">
-            <a href="#" class="edit-transaction-button manage-table-button">
+            <a routerLink="/edit" ariaCurrentWhenActive="page"  class="edit-transaction-button manage-table-button">
               <i class="bi bi-pencil"></i>
             </a>
           </td>

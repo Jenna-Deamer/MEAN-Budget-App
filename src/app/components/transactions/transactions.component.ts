@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgFor,DatePipe} from '@angular/common';
 
 //service for api calls
@@ -7,7 +8,7 @@ import { TransactionsService } from '../../services/transactions.service';
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [NgFor,DatePipe],
+  imports: [NgFor,DatePipe,RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.css'
 })
