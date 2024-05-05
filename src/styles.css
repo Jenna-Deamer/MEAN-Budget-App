@@ -34,6 +34,7 @@
 
 nav {
    background-color: var(--foreground);
+   height: 60px;
 }
 
 /*Custom Hamburger Menu Styles*/
@@ -155,7 +156,8 @@ h4 {
    color: var(--white);
 }
 .page-wrapper{
-   min-height: 100vh;
+   min-height: calc(100vh - 60px - 60px);
+    padding-bottom: 2em;
 }
 /*Global Buttons*/
 .primary-button {
@@ -294,4 +296,5 @@ footer {
    background-color: var(--foreground);
    color: var(--white);
    padding: 1em;
+   height: 60px;
 }

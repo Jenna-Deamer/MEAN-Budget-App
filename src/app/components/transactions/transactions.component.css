@@ -4,6 +4,7 @@
     display: flex;
     gap: 24px;
 }
+
 .table-buttons-container > a{
     display: flex;
     align-items: center;
@@ -18,6 +19,16 @@
     border-radius: var(--border-radius);
 }
 
+@media screen and (max-width: 1000px) {
+    .table-wrapper {
+      overflow-x: auto;
+    }
+  
+    .transactions-table {
+      width: 100%;
+      white-space: nowrap;
+    }
+  }
 /*Table Header */
 .transactions-table th {
     padding: 8px;
