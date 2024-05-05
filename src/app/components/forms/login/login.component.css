@@ -1,48 +1,8 @@
-.center-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 60px);
-}
 
-.login-form {
-    max-width: 600px; 
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px 28px;
-    margin: 24px;
-    background-color: var(--foreground);
-    border-radius: var(--border-radius);
-}
-
-.login-form h1 {
+.auth-form-container h1 {
     text-align: center;
     margin-bottom: 28px;
 }
-/*Form Fields*/
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
 .form-button-wrapper{
     display: flex;
     justify-content: center;
