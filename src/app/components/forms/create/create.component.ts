@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { NgFor,NgIf} from '@angular/common';
+import { NgFor,NgIf,NgClass} from '@angular/common';
 import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { TransactionsService } from '../../../services/transactions.service';
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [NgFor,FormsModule,RouterOutlet, RouterLink, RouterLinkActive,NgIf],
+  imports: [NgFor,FormsModule,RouterOutlet, RouterLink, RouterLinkActive,NgIf,NgClass],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
 })
@@ -26,8 +26,9 @@ export class CreateComponent {
   date: Date | undefined;
 
   //track form status for displaying error messages
-
   formInvalid: boolean = false;
+  //track if transaction was created
+  showSuccessMessage: boolean = false;
   //reset form 
   resetForm(): void {
     // Reset form values
@@ -37,6 +38,7 @@ export class CreateComponent {
     this.type = undefined;
     this.date = undefined;
   }
+
 
   addTransaction(): void {
     //if false, set FormInvalid to true to display err msg to users.
@@ -59,8 +61,17 @@ export class CreateComponent {
       //let user know transaction was created
       console.log('Transaction created successfully.');
       console.log(newTransaction);
-      //clear form to allow them to create a new transaction quickly
+      //set formInvalid back to false
+      this.formInvalid = false;
+      //show transaction created message for a short duration.
+      this.showSuccessMessage = true; //display msg
+      //clear form to allow user to create a new transaction quickly
       this.resetForm();
+      //hide successMsg
+      setTimeout(() => {
+        this.showSuccessMessage = false;
+      }, 3000); // Wait for 3 seconds before hiding 
+      //handle errors
     }, (error) => {
       console.error('Failed to create transaction:', error);
     });

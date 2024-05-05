@@ -1,9 +1,14 @@
 <section class="page-wrapper center-container">
     <article class="crud-form-container">
         <h1>Create Transaction</h1>
-        <div class="form-warning mb-2" *ngIf="formInvalid">
-            <h4>Please fill out all required fields</h4>
+
+        <div class="form-message-container">
+            <div class="form-message mb-2" *ngIf="formInvalid || showSuccessMessage" [ngClass]="{'errorPopup': formInvalid, 'successPopup': showSuccessMessage}">
+                <h4 *ngIf="formInvalid">Please fill out all required fields</h4>
+                <h4 class="fade-out" *ngIf="showSuccessMessage">Transaction created</h4>
+            </div>
         </div>
+
         <form class="crud-form">
             <div class="form-group">
                 <label for="name">Name</label>

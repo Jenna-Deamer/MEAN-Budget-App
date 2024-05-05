@@ -1,6 +1,15 @@
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 .crud-form-container h1 {
     text-align: center;
-    margin-bottom: 28px;
+    padding-bottom: 8px;
 }
 
 .form-button-wrapper {
@@ -21,4 +30,30 @@
           grid-column: 1 / -1;
     }
     
+}
+
+/*Form Alerts*/
+.form-message-container {
+    height: 60px; 
+}
+
+.errorPopup h4{
+    color: var(--red-label);
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+}
+
+.successPopup h4 {
+    color: var(--green-label);
+    text-align: center;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+  }
+  
+/*Fade success message out*/
+.fade-out {
+    animation: fadeOut 3s ease forwards;
 }
