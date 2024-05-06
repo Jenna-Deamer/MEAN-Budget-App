@@ -36,20 +36,21 @@
             <td>{{ transaction.date | date:'MMMM d, y' }}</td>
 
             <td class="button-cell">
-              <a [routerLink]="['/edit', transaction._id]" ariaCurrentWhenActive="page" class="edit-transaction-button manage-table-button">
+              <a [routerLink]="['/edit', transaction._id]" ariaCurrentWhenActive="page"
+                class="edit-transaction-button manage-table-button">
                 <i class="bi bi-pencil"></i>
               </a>
-              
+
             </td>
             <td class="button-cell">
-              <a href="#" class="delete-transaction-button manage-table-button">
+              <a (click)="deleteTransaction(transaction._id)" class="delete-transaction-button manage-table-button">
                 <i class="bi bi-x-lg"></i>
               </a>
             </td>
           </tr>
         </tbody>
       </table>
-    </div>  
+    </div>
   </section>
-  
+
 </section>

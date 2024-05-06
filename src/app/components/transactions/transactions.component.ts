@@ -4,6 +4,7 @@ import { NgFor,DatePipe} from '@angular/common';
 
 //service for api calls
 import { TransactionsService } from '../../services/transactions.service';
+import { transition } from '@angular/animations';
 
 @Component({
   selector: 'app-transactions',
@@ -28,6 +29,18 @@ export class TransactionsComponent {
     })
   }
   
+
+ deleteTransaction(transactionId: string): void {
+    //pass transactionId  & confirm with user to delete transaction
+    if(confirm('Are you sure you want to delete this transaction?') == true){
+      //remove the transaction
+      this.service.deleteTransaction(transactionId).subscribe(response =>{
+        //re-get transactions to update table view
+        this.getTransactions();
+        
+      });
+    }
+  }
   //runs every time component instantiates
   ngOnInit(): void{
     this.getTransactions();
