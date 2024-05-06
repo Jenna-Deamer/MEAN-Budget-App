@@ -17,8 +17,8 @@ export class TransactionsComponent {
   //cant create a transaction object without a service object
   constructor(private service: TransactionsService){}
 
+
   TRANSACTIONS: any;
-  
 
   //call api GET via service,
   // wait for json response then populate TRANSACTIONS var
@@ -27,7 +27,7 @@ export class TransactionsComponent {
       this.TRANSACTIONS = response;
     })
   }
-
+  
   //runs every time component instantiates
   ngOnInit(): void{
     this.getTransactions();

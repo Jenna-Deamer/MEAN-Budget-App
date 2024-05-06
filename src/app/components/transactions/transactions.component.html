@@ -4,7 +4,7 @@
       <h1 class="page-title">Month's Overview</h1>
     </div>
     <div class="calender-button-container">
-      <a href="#" class="primary-button calender-button">Month Year</a>
+      <a href="#" class="primary-button calender-button">Month | Year</a>
     </div>
   </div>
 
@@ -36,9 +36,10 @@
             <td>{{ transaction.date | date:'MMMM d, y' }}</td>
 
             <td class="button-cell">
-              <a routerLink="/edit" ariaCurrentWhenActive="page"  class="edit-transaction-button manage-table-button">
+              <a [routerLink]="['/edit', transaction._id]" ariaCurrentWhenActive="page" class="edit-transaction-button manage-table-button">
                 <i class="bi bi-pencil"></i>
               </a>
+              
             </td>
             <td class="button-cell">
               <a href="#" class="delete-transaction-button manage-table-button">

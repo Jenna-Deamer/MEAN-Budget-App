@@ -21,8 +21,19 @@ export class TransactionsService {
   //POST
   addTransaction(transaction: any) {
     //pass url & data we want to submit
-    console.log('Transaction Service Called');
     return this.http.post(`${this.serverUrl}/api/transactions`, transaction);
     
   }
+   // GET a single transaction by ID
+  getTransactionById(transactionId: string) {
+    return this.http.get(`${this.serverUrl}/api/transactions/${transactionId}`);
+  }
+
+  //PUT
+  updateTransaction(transaction: any){
+    console.log('Transaction Update service called');
+
+    return this.http.put(`${this.serverUrl}/api/transactions/${transaction._id}`, transaction);
+  }
 }
+
