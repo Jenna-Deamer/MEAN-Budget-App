@@ -2,6 +2,7 @@
     text-align: center;
     margin-bottom: 28px;
 }
+
 .form-button-wrapper {
     /*Put button in last row, span 2 cols*/
     grid-column: 1 / span 2;
@@ -10,14 +11,29 @@
     justify-content: center;
     align-items: center;
 }
+
 @media (max-width: 800px) {
     .crud-form {
         grid-template-columns: 1fr;
         gap: unset;
     }
-    .form-button-wrapper{
-          /* Span all columns when screen width <= 800px */
-          grid-column: 1 / -1;
+
+    .form-button-wrapper {
+        /* Span all columns when screen width <= 800px */
+        grid-column: 1 / -1;
     }
-    
+
+}
+
+/*Form Alerts*/
+.form-message-container {
+    height: 60px;
+}
+
+.errorPopup h4 {
+    color: var(--red-label);
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
 }

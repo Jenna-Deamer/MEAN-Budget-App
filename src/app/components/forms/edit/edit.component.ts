@@ -11,7 +11,7 @@ import { TransactionsService } from '../../../services/transactions.service';
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, RouterLink, RouterLinkActive, NgIf, NgClass],
+  imports: [FormsModule, RouterOutlet, RouterLink, RouterLinkActive, NgIf, NgClass,],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
@@ -22,7 +22,8 @@ export class EditComponent {
 
   constructor(
     private route: ActivatedRoute, // Inject ActivatedRoute
-    private service: TransactionsService //inject service dependency 
+    private service: TransactionsService, //Inject service dependency 
+    private router: Router // Inject Router service
   ) { }
 
   transaction: any;
@@ -46,20 +47,32 @@ export class EditComponent {
   
   // Method to update transaction
   updateTransaction(): void {
+     //if false, set FormInvalid to true to display err msg to users.
+    if (!this.isValidForm()) {
+      this.formInvalid = true;
+      return;
+    }
+
     this.service.updateTransaction(this.transaction).subscribe(
       (response) => {
         console.log('Transaction updated:', response);
+        // Redirect to transactions page arfter updating transaction
+         this.router.navigate(['/transactions']); // Redirect to '/transactions' route
+
       },
       (error) => {
         console.error('Error updating transaction:', error);
+        // Set formInvalid to true if there is an error to display err msg to users
+        this.formInvalid = true;
       }
     );
   }
   
   //validation handler
-  // isValidForm(): boolean {
-  //   //check if any of the form fields are empty
-  //   return !!this.name && !!this.amount && !!this.category && !!this.type && !!this.date;
-  // // Return true only if all form fields have non-empty values, otherwise return false
-  // }
+  isValidForm(): boolean {
+    //check if any of the form fields are empty
+    return !!this.transaction.name && !!this.transaction.amount &&
+     !!this.transaction.category && !!this.transaction.type && !!this.transaction.date;
+    // Return true only if all form fields have non-empty values, otherwise return false
+  }
 }
