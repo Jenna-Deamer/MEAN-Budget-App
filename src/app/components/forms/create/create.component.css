@@ -12,14 +12,6 @@
     padding-bottom: 8px;
 }
 
-.form-button-wrapper {
-    /*Put button in last row, span 2 cols*/
-    grid-column: 1 / span 2;
-    /*Center it in the middle of the row*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 @media (max-width: 800px) {
     .crud-form {
         grid-template-columns: 1fr;
@@ -32,28 +24,3 @@
     
 }
 
-/*Form Alerts*/
-.form-message-container {
-    height: 60px; 
-}
-
-.errorPopup h4{
-    color: var(--red-label);
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    text-align: center;
-}
-
-.successPopup h4 {
-    color: var(--green-label);
-    text-align: center;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-  }
-  
-/*Fade success message out*/
-.fade-out {
-    animation: fadeOut 3s ease forwards;
-}

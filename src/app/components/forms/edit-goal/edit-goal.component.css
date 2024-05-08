@@ -1,11 +1,9 @@
-.crud-form-container h1 {
+.goal-form-container h1 {
     text-align: center;
-    margin-bottom: 28px;
 }
 
-
 @media (max-width: 800px) {
-    .crud-form {
+    .goal-form {
         grid-template-columns: 1fr;
         gap: unset;
     }
