@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgFor,DatePipe} from '@angular/common';
+import { GoalWidgetComponent } from '../ui-components/goal-widget/goal-widget.component';
 
 //service for api calls
 import { TransactionsService } from '../../services/transactions.service';
@@ -9,7 +10,7 @@ import { transition } from '@angular/animations';
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [NgFor,DatePipe,RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [NgFor,DatePipe,RouterOutlet, RouterLink, RouterLinkActive,GoalWidgetComponent],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.css'
 })

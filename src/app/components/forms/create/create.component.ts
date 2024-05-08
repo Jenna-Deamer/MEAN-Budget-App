@@ -70,7 +70,7 @@ export class CreateComponent {
       //hide successMsg
       setTimeout(() => {
         this.showSuccessMessage = false;
-      }, 3000); // Wait for 3 seconds before hiding 
+      }, 5000); // Wait for 5 seconds before hiding 
       //handle errors
     }, (error) => {
       console.error('Failed to create transaction:', error);

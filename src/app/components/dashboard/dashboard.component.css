@@ -17,18 +17,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-
-
 }
 
 #expense-article,
 #income-article {
   max-width: 500px;
-}
-
-.goal-widget {
-  max-width: 800px;
-
 }
 
 .highlight-article>p {
@@ -81,8 +74,6 @@
   }
 
   .highlight-article.goal-widget {
-    /* Move the goal widget to top of stack*/
-    order: -1;
     grid-column: unset;
   }
 }

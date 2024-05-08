@@ -79,3 +79,24 @@
 .delete-transaction-button:hover{
     background-color: var(--red-hover);
 }
+
+/*Goal Widget*/
+.goal-widget-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4em 2em 2em 2em;
+    
+}
+.goal-widget {
+    width: 500px;
+    background-color: var(--foreground);
+    border-radius: var(--border-radius);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+  }
