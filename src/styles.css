@@ -159,6 +159,14 @@ h4 {
    min-height: calc(100vh - 60px - 60px);
     padding-bottom: 2em;
 }
+.form-page-wrapper{
+   min-height: calc(100vh - 60px - 60px);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 2em;
+}
 /*Global Buttons*/
 .primary-button {
    background: var(--action);
@@ -249,13 +257,15 @@ ul, ol,li {
    border-radius: var(--border-radius);
    margin: 24px;
 }
-.crud-form{
+.crud-form, 
+.goal-form{
    display: grid;
    grid-template-columns: repeat(1fr, 2); 
    gap: 28px;
 }
 
-.crud-form-container {
+.crud-form-container,
+.goal-form-container {
    max-width: 800px; 
    min-height: 500px;
    display: flex;
@@ -267,6 +277,16 @@ ul, ol,li {
    margin: 24px;
    background-color: var(--foreground);
    border-radius: var(--border-radius);
+}
+
+
+.form-button-wrapper {
+   /*Put button in last row, span 2 cols*/
+   grid-column: 1 / span 2;
+   /*Center it in the middle of the row*/
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 /*Form Fields*/
 
@@ -291,6 +311,31 @@ select {
    border-radius: 3px;
 }
  
+/*Form Alerts*/
+.form-message-container {
+   height: 60px; 
+}
+
+.errorPopup h4{
+   color: var(--red-label);
+   display: flex;
+   justify-self: center;
+   align-items: center;
+   text-align: center;
+}
+
+.successPopup h4 {
+   color: var(--green-label);
+   text-align: center;
+   display: flex;
+   justify-self: center;
+   align-items: center;
+ }
+ 
+/*Fade success message out*/
+.fade-out {
+   animation: fadeOut 3s ease forwards;
+}
 /*Footer*/
 footer {
    background-color: var(--foreground);
