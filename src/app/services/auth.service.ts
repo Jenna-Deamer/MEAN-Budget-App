@@ -18,7 +18,7 @@ export class AuthService {
     console.log('login service called');
     return this.http.post<any>(`${this.serverUrl}/api/users/login`, { username, password }).pipe(
       map(response => {
-        // Handle successful login, store token or user data in local storage or session storage
+        // Handle successful login, store token or user data in local storage
         localStorage.setItem('token', response.token);
         return response;
       }),
@@ -47,12 +47,12 @@ export class AuthService {
   }
 
   logout(): void {
-    // Clear stored token or user data from local storage or session storage
+    // Clear stored token or user data from local storage
     localStorage.removeItem('token');
   }
 
   isLoggedIn(): boolean {
-    // Check if token or user data exists in local storage or session storage
+    // Check if token or user data exists in local storage
     return !!localStorage.getItem('token');
   }
 }
