@@ -16,15 +16,15 @@ import { FormsModule } from '@angular/forms';
 export class SignupComponent {
   username: string = '';
   password: string = '';
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   createUser(): void {
     this.authService.register(this.username, this.password)
       .subscribe(response => {
         // Handle successful registration response
         console.log('Registration successful:', response);
-        // Redirect or show success message
+         //redirect to transactions page
+         this.router.navigateByUrl('/transactions');
       }, error => {
         // Handle registration error
         console.error('Registration error:', error);

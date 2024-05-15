@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterOutlet, RouterLink, RouterLinkActive, NgIf, NgClass,],
+  imports: [FormsModule, RouterOutlet, RouterLink, RouterLinkActive,NgIf, NgClass,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -18,7 +18,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
     this.authService.login(this.username, this.password)
@@ -27,6 +27,7 @@ export class LoginComponent {
         console.log('Login successful:', response);
         console.log(this.username + " " + this.password);
         //redirect to transactions page
+        this.router.navigateByUrl('/transactions');
       }, error => {
         // Handle login error
         console.error('Login error:', error);
