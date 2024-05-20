@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './services/auth.guard';
 /**Main Components**/
 import { HomeComponent } from './components/home/home.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -16,12 +17,12 @@ import { createComponent } from '@angular/core';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'transactions', component: TransactionsComponent },
+    { path: 'dashboard', component: DashboardComponent,canActivate: [authGuard] },
+    { path: 'transactions', component: TransactionsComponent,canActivate: [authGuard] },
     { path: 'signup', component: SignupComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'create', component: CreateComponent },
-    { path: 'edit/:id', component: EditComponent },
-    { path: 'create-goal', component: CreateGoalComponent },
-    { path: 'edit-goal/:id', component: EditGoalComponent }
+    { path: 'create', component: CreateComponent ,canActivate: [authGuard]},
+    { path: 'edit/:id', component: EditComponent,canActivate: [authGuard] },
+    { path: 'create-goal', component: CreateGoalComponent ,canActivate: [authGuard]},
+    { path: 'edit-goal/:id', component: EditGoalComponent ,canActivate: [authGuard]}
 ];

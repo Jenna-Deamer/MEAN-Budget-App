@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environment/environment';
 
@@ -10,11 +10,25 @@ import { environment } from '../../environment/environment';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  
+
   serverUrl: string = environment.serverUrl;
-  
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('user'); // Check if user data exists in local storage
+
+  // isLoggedIn(): boolean {
+  //   return !!localStorage.getItem('user'); // Check if user data exists in local storage
+  // }
+
+  /* A BehaviorSubject to hold the authentication status &
+    allow other parts of  app to subscribe to changes.
+   It is initialized with the current authentication status. */
+  private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasUser());
+  /*An observable to allow other parts of the app to reactively 
+   update when the authentication status changes.*/
+  isLoggedIn = this.isLoggedInSubject.asObservable(); 
+
+  /* A helper method to check if there is a user in local storage, 
+  indicating that the user is logged in.*/
+  public hasUser(): boolean {
+    return !!localStorage.getItem('user'); // Returns true if 'user' is in local storage, otherwise false.
   }
 
   login(username: string, password: string): Observable<any> {
@@ -23,6 +37,7 @@ export class AuthService {
       map(response => {
         // Handle successful login
         localStorage.setItem('user', JSON.stringify(response.user)); // Store user data in local storage
+        this.isLoggedInSubject.next(true); //Update behaviorSubject 
         return response;
       }),
       catchError(error => {
@@ -51,6 +66,7 @@ export class AuthService {
 
   logout(): Observable<any> {
     localStorage.removeItem('user'); // Clear user data from local storage upon logout
+    this.isLoggedInSubject.next(false);  // Update the BehaviorSubject
     return this.http.get<any>(`${this.serverUrl}/api/users/logout`);
   }
 }
