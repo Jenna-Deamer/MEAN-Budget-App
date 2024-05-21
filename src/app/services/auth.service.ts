@@ -13,22 +13,25 @@ export class AuthService {
 
   serverUrl: string = environment.serverUrl;
 
-  // isLoggedIn(): boolean {
-  //   return !!localStorage.getItem('user'); // Check if user data exists in local storage
-  // }
-
   /* A BehaviorSubject to hold the authentication status &
     allow other parts of  app to subscribe to changes.
    It is initialized with the current authentication status. */
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasUser());
   /*An observable to allow other parts of the app to reactively 
    update when the authentication status changes.*/
-  isLoggedIn = this.isLoggedInSubject.asObservable(); 
+  isLoggedIn = this.isLoggedInSubject.asObservable();
 
+  private usernameSubject = new BehaviorSubject<string | null>(this.getUsername());
+  username = this.usernameSubject.asObservable();
   /* A helper method to check if there is a user in local storage, 
   indicating that the user is logged in.*/
   public hasUser(): boolean {
     return !!localStorage.getItem('user'); // Returns true if 'user' is in local storage, otherwise false.
+  }
+
+  private getUsername(): string | null {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user).username : null;
   }
 
   login(username: string, password: string): Observable<any> {
@@ -37,7 +40,7 @@ export class AuthService {
       map(response => {
         // Handle successful login
         localStorage.setItem('user', JSON.stringify(response.user)); // Store user data in local storage
-        this.isLoggedInSubject.next(true); //Update behaviorSubject 
+        this.usernameSubject.next(response.user.username);   //Update behaviorSubject with username
         return response;
       }),
       catchError(error => {
@@ -67,6 +70,7 @@ export class AuthService {
   logout(): Observable<any> {
     localStorage.removeItem('user'); // Clear user data from local storage upon logout
     this.isLoggedInSubject.next(false);  // Update the BehaviorSubject
+    this.usernameSubject.next(null);  // Clear the username
     return this.http.get<any>(`${this.serverUrl}/api/users/logout`);
   }
 }

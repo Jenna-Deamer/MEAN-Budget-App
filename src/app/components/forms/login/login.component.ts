@@ -18,9 +18,20 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
+  formInvalid: boolean = false;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
+     // Reset error states
+     this.formInvalid = false;
+
+     //form validation
+     if (!this.username || !this.password) {
+      this.formInvalid = true;
+      return;
+    }
+
     this.authService.login(this.username, this.password)
       .subscribe(response => {
         // Handle successful login response

@@ -6,13 +6,14 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgIf,RouterOutlet, RouterLink, RouterLinkActive,],
+  imports: [NgIf, RouterOutlet, RouterLink, RouterLinkActive,],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
+  username: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -20,6 +21,10 @@ export class NavbarComponent implements OnInit {
     // this.isLoggedIn = this.authService.isLoggedIn();
     this.authService.isLoggedIn.subscribe(status => { // Update isLoggedIn based on status
       this.isLoggedIn = status;
+    });
+    //get username for displaying in Navbar
+    this.authService.username.subscribe(name => {
+      this.username = name;
     });
   }
 

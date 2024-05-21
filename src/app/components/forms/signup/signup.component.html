@@ -2,6 +2,11 @@
     <article class="auth-form-container">
         <h1>Sign Up</h1>
         <form>
+            <div class="form-message-container">
+                <div class="form-message mb-2" *ngIf="formInvalid" [ngClass]="{'errorPopup': formInvalid}">
+                    <h4 *ngIf="formInvalid">{{formErrorMessage}}</h4>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required [(ngModel)]="username">

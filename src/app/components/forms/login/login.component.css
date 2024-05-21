@@ -8,3 +8,16 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Center the error message */
+.form-message-container {
+    text-align: center; /* Center the text inside the container */
+}
+
+.form-message {
+    display: inline-block; 
+    color: var(--red-label); 
+}
+
+
+

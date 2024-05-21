@@ -30,14 +30,13 @@
 
 }
 
-/*Nav Bootstrap overrides*/
-
+/* Nav Bootstrap overrides */
 nav {
    background-color: var(--foreground);
    height: 60px;
 }
 
-/*Custom Hamburger Menu Styles*/
+/* Custom Hamburger Menu Styles */
 .navbar-toggler-icon {
    background-image: url(./assets/mobile-open.svg);
 }
@@ -60,19 +59,35 @@ nav {
    cursor: pointer;
 }
 
-/*Nav Link Styles*/
+/* Nav Link Styles */
 .nav-link,
-.navbar-brand {
+.navbar-brand,
+.nav-user-label {
    color: var(--white);
 }
+
 .nav-link:focus,
-.navbar-brand:focus{
-  color: var(--white);
- }
+.navbar-brand:focus {
+   color: var(--white);
+}
+
 .nav-link:hover,
 .navbar-brand:hover {
    color: var(--action-hover);
-   transition: var(--global-transition)
+   transition: var(--global-transition);
+}
+
+/* Override hover for nav-user-label */
+.nav-user-label:hover {
+   color: var(--white);
+}
+
+/* Ensure vertical alignment for nav text */
+.nav-user-label {
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+   display: flex;
+   align-items: center;
 }
 
 /*Fonts & Sizes*/

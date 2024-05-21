@@ -16,15 +16,40 @@ import { FormsModule } from '@angular/forms';
 export class SignupComponent {
   username: string = '';
   password: string = '';
+
+  formInvalid: boolean = false;
+  formErrorMessage: string = '';
+  usernameTaken: boolean = false;
+
+
   constructor(private authService: AuthService, private router: Router) { }
 
   createUser(): void {
+    // Reset error states
+    this.formInvalid = false;
+
+    //form validation
+
+    // Form validation
+    //if empty
+    if (!this.username || !this.password) {
+      this.formInvalid = true;
+      this.formErrorMessage = "Please fill out all fields";
+      return;
+      //if password is not 8 or more
+    } else if (this.password.length < 8) {
+      this.formInvalid = true;
+      this.formErrorMessage = "Password must be 8 or more characters";
+      return;
+    }
+    //if username is taken
+
     this.authService.register(this.username, this.password)
       .subscribe(response => {
         // Handle successful registration response
         console.log('Registration successful:', response);
-         //redirect to transactions page
-         this.router.navigateByUrl('/transactions');
+        //redirect to transactions page
+        this.router.navigateByUrl('/transactions');
       }, error => {
         // Handle registration error
         console.error('Registration error:', error);
