@@ -34,6 +34,15 @@ export class AuthService {
     return user ? JSON.parse(user).username : null;
   }
 
+  checkUsername(username: string): Observable<any> {
+    return this.http.get<any>(`${this.serverUrl}/api/users/checkUsername/${username}`).pipe(
+      catchError(error => {
+        console.error('Username check error:', error);
+        return error;
+      })
+    );
+  }
+
   login(username: string, password: string): Observable<any> {
     console.log('login service called');
     return this.http.post<any>(`${this.serverUrl}/api/users/login`, { username, password }).pipe(
