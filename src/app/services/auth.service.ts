@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environment/environment';
@@ -13,6 +13,11 @@ export class AuthService {
 
   serverUrl: string = environment.serverUrl;
 
+  getUser(): { id: string; username: string } | null {
+    const userString = localStorage.getItem('user');
+    return userString ? JSON.parse(userString) : null;
+  }
+  
   /* A BehaviorSubject to hold the authentication status &
     allow other parts of  app to subscribe to changes.
    It is initialized with the current authentication status. */
@@ -29,7 +34,7 @@ export class AuthService {
     return !!localStorage.getItem('user'); // Returns true if 'user' is in local storage, otherwise false.
   }
 
-  private getUsername(): string | null {
+  private getUsername(): string {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user).username : null;
   }
@@ -43,16 +48,19 @@ export class AuthService {
     );
   }
 
+
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.serverUrl}/api/users/login`, { username, password }).pipe(
       map(response => {
         // Store user data in local storage upon successful login
         localStorage.setItem('user', JSON.stringify(response.user));
-        // Update the authentication status to indicate that the user is logged in
-        this.isLoggedInSubject.next(true);
-        // Emit the username to subscribers
-        this.usernameSubject.next(response.user.username);
-        return response;
+        // Set 'user' header with the serialized user object
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'user': JSON.stringify(response.user) // Use lowercase 'user' as the header key
+        });
+        // Make authenticated request with headers
+        return this.http.get<any>('your_authenticated_endpoint', { headers });
       }),
       catchError(error => {
         console.error('Login error:', error);
@@ -60,8 +68,7 @@ export class AuthService {
       })
     );
   }
-
-
+  
   register(username: string, password: string): Observable<any> {
     console.log('register service called');
     return this.http.post<any>(`${this.serverUrl}/api/users/register`, { username, password }).pipe(
