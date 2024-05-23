@@ -44,21 +44,23 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    console.log('login service called');
     return this.http.post<any>(`${this.serverUrl}/api/users/login`, { username, password }).pipe(
       map(response => {
-        // Handle successful login
-        localStorage.setItem('user', JSON.stringify(response.user)); // Store user data in local storage
-        this.usernameSubject.next(response.user.username);   //Update behaviorSubject with username
+        // Store user data in local storage upon successful login
+        localStorage.setItem('user', JSON.stringify(response.user));
+        // Update the authentication status to indicate that the user is logged in
+        this.isLoggedInSubject.next(true);
+        // Emit the username to subscribers
+        this.usernameSubject.next(response.user.username);
         return response;
       }),
       catchError(error => {
-        // Handle login error
         console.error('Login error:', error);
         return error;
       })
     );
   }
+
 
   register(username: string, password: string): Observable<any> {
     console.log('register service called');
@@ -77,9 +79,13 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    localStorage.removeItem('user'); // Clear user data from local storage upon logout
-    this.isLoggedInSubject.next(false);  // Update the BehaviorSubject
-    this.usernameSubject.next(null);  // Clear the username
+    // Clear user data from local storage upon logout
+    localStorage.removeItem('user');
+    // Update the authentication status to indicate that the user is logged out
+    this.isLoggedInSubject.next(false);
+    // Clear the username
+    this.usernameSubject.next(null);
+    // Send a request to the server to log the user out
     return this.http.get<any>(`${this.serverUrl}/api/users/logout`);
   }
 }
